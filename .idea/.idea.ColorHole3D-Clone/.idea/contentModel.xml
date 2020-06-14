@@ -4,6 +4,7 @@
     <e p="C:\Users\ONUR OZLER\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\ONUR OZLER\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ColorHole3D-Clone.-574036693.00" t="ExcludeRecursive" />
     <e p="D:\My Projects\Unity\ColorHole3D-Clone" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Plugins" t="Include">
@@ -716,6 +717,9 @@
               <e p="Managers" t="Include">
                 <e p="CollectablePool.cs" t="Include" />
               </e>
+              <e p="Model" t="Include">
+                <e p="CollectablePack.cs" t="Include" />
+              </e>
             </e>
             <e p="HoleSystem" t="Include">
               <e p="Base" t="Include">
@@ -729,6 +733,9 @@
             <e p="LevelSystem" t="Include">
               <e p="Controllers" t="Include">
                 <e p="LevelGenerator.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="LevelSaveEditor.cs" t="Include" />
               </e>
               <e p="Managers" t="Include">
                 <e p="LevelManager.cs" t="Include" />

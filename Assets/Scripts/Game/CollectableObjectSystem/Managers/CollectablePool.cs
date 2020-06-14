@@ -5,6 +5,5 @@ namespace Game.CollectableObjectSystem.Managers
 {
     public class CollectablePool : MonoMemoryPool<CollectableBase>
     {
-        
     }
 }

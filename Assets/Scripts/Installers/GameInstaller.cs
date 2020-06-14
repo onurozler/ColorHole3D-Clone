@@ -39,8 +39,8 @@ namespace Installers
                .FromComponentInNewPrefabResource(COLLECTABLE_PREFAB_PATH).UnderTransform(_poolContainer);
 
             Container.Bind<LevelGenerator>().FromNewComponentOnNewGameObject().WithGameObjectName("LevelGenerator").AsSingle().NonLazy();
-            Container.Bind<LevelManager>().AsSingle().NonLazy();
             Container.Bind<LevelData>().FromResources(LEVEL_DATAS_PATH).AsSingle();
+            Container.Bind<LevelManager>().AsSingle().NonLazy();
         }
     }
 }

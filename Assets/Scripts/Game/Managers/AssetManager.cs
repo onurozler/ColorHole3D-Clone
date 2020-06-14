@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Game.CollectableObjectSystem.Base;
+using Game.CollectableObjectSystem.Model;
 using UnityEngine;
 using Zenject;
 
@@ -18,9 +19,9 @@ namespace Game.Managers
             _materials = materials;
         }
 
-        public Material GetCollectableMaterial(CollectableType collectableType)
+        public Material GetCollectableMaterial(CollectablePack collectablePack)
         {
-            return _materials.FirstOrDefault(x => String.Equals(x.name, collectableType
+            return _materials.FirstOrDefault(x => String.Equals(x.name, collectablePack
                                                                  +MATERIAL_PREFIX, StringComparison.OrdinalIgnoreCase));
         }
     }
