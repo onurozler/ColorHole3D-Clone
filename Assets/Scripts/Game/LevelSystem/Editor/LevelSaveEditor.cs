@@ -37,7 +37,8 @@ namespace Game.LevelSystem.Editor
             var collectables = FindObjectsOfType<CollectableBase>().ToList();
             if (collectables.Count <= 0 || _currentLevel == null)
                 return;
-
+            
+            _currentLevel.CollectableDatas.Clear();
             foreach (var collectable in collectables)
             {
                 _currentLevel.CollectableDatas.Add(new CollectableData(collectable.transform.position,collectable.CollectableType));

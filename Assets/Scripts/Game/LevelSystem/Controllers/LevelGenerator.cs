@@ -1,5 +1,4 @@
-﻿using System;
-using Game.CollectableObjectSystem.Managers;
+﻿using Game.CollectableObjectSystem.Managers;
 using Game.LevelSystem.Managers;
 using Game.Managers;
 using UnityEngine;

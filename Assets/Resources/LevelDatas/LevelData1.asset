@@ -14,7 +14,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   CollectableDatas:
-  - Position: {x: 3.237, y: 0.2, z: 1.6692357}
+  - Position: {x: 2.9038262, y: 0.2, z: 1.81}
     CollectableType: 0
-  - Position: {x: 2.961, y: 0.2, z: 1.6692357}
-    CollectableType: 1
+  - Position: {x: 3.16, y: 0.2, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.47, y: 0.2, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.75, y: 0.2, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.75, y: 0.51, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.47, y: 0.51, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.16, y: 0.51, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 2.9038262, y: 0.51, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 2.9038262, y: 0.8, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.16, y: 0.8, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.47, y: 0.8, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.75, y: 0.8, z: 1.81}
+    CollectableType: 0
+  - Position: {x: 3.75, y: 0.8, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 3.47, y: 0.8, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 3.16, y: 0.8, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 2.9038262, y: 0.8, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 2.9038262, y: 0.51, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 3.16, y: 0.51, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 3.47, y: 0.51, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 3.75, y: 0.51, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 3.75, y: 0.2, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 3.47, y: 0.2, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 3.16, y: 0.2, z: 1.43}
+    CollectableType: 0
+  - Position: {x: 2.9038262, y: 0.2, z: 1.43}
+    CollectableType: 0
