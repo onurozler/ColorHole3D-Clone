@@ -14,7 +14,7 @@ namespace Game.LevelSystem.Controllers
         private LevelManager _levelManager;
         private CollectablePool _collectablePool;
 
-        public Action<int> OnLevelGenerated;
+        private static int _currentLevel;
         
         [Inject]
         private void OnInstaller(CollectablePool collectablePool, LevelManager levelManager, AssetManager assetManager)
@@ -22,21 +22,25 @@ namespace Game.LevelSystem.Controllers
             _collectablePool = collectablePool;
             _levelManager = levelManager;
             _assetManager = assetManager;
-            
-            Start();
+            _currentLevel = 0;
         }
 
-        private void Start()
+        public void GenerateLevel()
         {
-            var level = _levelManager.LoadLevel(1);
-            
-            foreach (var collectableData in level.CollectableDatas)
+            var level = _levelManager.LoadLevel(_currentLevel);
+
+            if (level != null)
             {
-                var collectable = _collectablePool.Spawn();
-                collectable.SetValues(collectableData.CollectableType,collectableData.Position,
-                    _assetManager.GetCollectableMaterial(collectableData.CollectableType));
+                _currentLevel++;
                 
-                OnLevelGenerated.SafeInvoke(level.CollectableDatas.Count);
+                foreach (var collectableData in level.CollectableDatas)
+                {
+                    var collectable = _collectablePool.Spawn();
+                    collectable.SetValues(collectableData.CollectableType,collectableData.Position,
+                        _assetManager.GetCollectableMaterial(collectableData.CollectableType));
+                
+                    MessageBroker.Default.Publish(level.CollectableDatas);
+                }
             }
         }
     }
