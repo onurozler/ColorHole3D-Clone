@@ -7,6 +7,7 @@ using Game.LevelSystem.Controllers;
 using Game.LevelSystem.Managers;
 using Game.LevelSystem.Model;
 using Game.Managers;
+using Game.View;
 using UnityEngine;
 using Zenject;
 
@@ -35,13 +36,15 @@ namespace Installers
             Container.Bind<AssetManager>().AsSingle().NonLazy();
             Container.Bind<Material>().FromResources(MATERIAL_PATH).AsSingle();
             
-            Container.Bind<CollectableManager>().AsSingle().NonLazy();
             Container.BindMemoryPool<CollectableBase, CollectablePool>().WithInitialSize(GameConfig.POOL_INITIAL_COUNT)
                .FromComponentInNewPrefabResource(COLLECTABLE_PREFAB_PATH).UnderTransform(_poolContainer);
 
-            Container.Bind<LevelGenerator>().FromNewComponentOnNewGameObject().WithGameObjectName("LevelGenerator").AsSingle().NonLazy();
             Container.Bind<LevelData>().FromResources(LEVEL_DATAS_PATH).AsSingle();
+            Container.Bind<LevelGenerator>().AsSingle().NonLazy();
             Container.Bind<LevelManager>().AsSingle().NonLazy();
+            Container.Bind<LevelCollectableController>().FromComponentInHierarchy().AsSingle().NonLazy();
+
+            Container.Bind<PlayerView>().FromComponentInHierarchy().AsSingle().NonLazy();
         }
     }
 }
