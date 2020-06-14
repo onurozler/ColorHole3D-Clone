@@ -1,9 +1,11 @@
-
 using Config;
 using Game.CollectableObjectSystem.Base;
 using Game.CollectableObjectSystem.Managers;
 using Game.HoleSystem.Base;
 using Game.HoleSystem.Controllers;
+using Game.LevelSystem.Controllers;
+using Game.LevelSystem.Managers;
+using Game.LevelSystem.Model;
 using Game.Managers;
 using UnityEngine;
 using Zenject;
@@ -12,6 +14,7 @@ namespace Installers
 {
     public class GameInstaller : MonoInstaller
     {
+        private const string LEVEL_DATAS_PATH = "LevelDatas";
         private const string MATERIAL_PATH = "Materials";
         private const string COLLECTABLE_PREFAB_PATH = "Prefabs/CollectableBase";
         
@@ -34,6 +37,10 @@ namespace Installers
 
             Container.BindMemoryPool<CollectableBase, CollectablePool>().WithInitialSize(GameConfig.POOL_INITIAL_COUNT)
                .FromComponentInNewPrefabResource(COLLECTABLE_PREFAB_PATH).UnderTransform(_poolContainer);
+
+            Container.Bind<LevelGenerator>().FromNewComponentOnNewGameObject().WithGameObjectName("LevelGenerator").AsSingle().NonLazy();
+            Container.Bind<LevelManager>().AsSingle().NonLazy();
+            Container.Bind<LevelData>().FromResources(LEVEL_DATAS_PATH).AsSingle();
         }
     }
 }
