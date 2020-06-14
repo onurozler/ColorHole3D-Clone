@@ -19,9 +19,8 @@ namespace Game.HoleSystem.Controllers
         private void OnTriggerStay(Collider other)
         {
             var collectable = other.GetComponent<CollectableBase>();
-            if (collectable != null)
+            if (collectable != null && !collectable.IsRelased)
             {
-                collectable.gameObject.layer = GameConfig.COLLECTABLE_LAYER;
                 collectable.Release();
             }
         }
@@ -29,9 +28,9 @@ namespace Game.HoleSystem.Controllers
         private void OnTriggerExit(Collider other)
         {
             var collectable = other.GetComponent<CollectableBase>();
-            if (collectable != null)
+            if (collectable != null && collectable.IsRelased)
             {
-                collectable.gameObject.layer = GameConfig.DEFAULT_LAYER;
+                collectable.Stop();
             }
         }
     }
