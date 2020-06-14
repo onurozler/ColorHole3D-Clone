@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Game.CollectableObjectSystem.Base;
+using Game.CollectableObjectSystem.Model;
 using Game.LevelSystem.Model;
 using UnityEditor;
 using UnityEngine;
@@ -39,7 +40,7 @@ namespace Game.LevelSystem.Editor
 
             foreach (var collectable in collectables)
             {
-                _currentLevel.CollectablePositions.Add(collectable.transform.position);
+                _currentLevel.CollectableDatas.Add(new CollectableData(collectable.transform.position,collectable.CollectableType));
             }
             
             EditorUtility.SetDirty(_currentLevel);

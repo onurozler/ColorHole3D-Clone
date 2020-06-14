@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Game.LevelSystem.Model;
 using Zenject;
 
@@ -14,9 +15,9 @@ namespace Game.LevelSystem.Managers
             _levelDatas = levelDatas;
         }
         
-        public void  LoadLevel(int index)
+        public LevelData LoadLevel(int index)
         {
-                
+            return _levelDatas.FirstOrDefault(x => x.ID == index);
         }
     }
 }

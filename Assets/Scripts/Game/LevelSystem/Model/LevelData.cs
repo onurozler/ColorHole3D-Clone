@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game.CollectableObjectSystem.Model;
 using UnityEngine;
 
 namespace Game.LevelSystem.Model
@@ -7,6 +8,7 @@ namespace Game.LevelSystem.Model
     public class LevelData : ScriptableObject
     {
         public int ID;
-        public List<Vector3> CollectablePositions;
+        public List<CollectableData> CollectableDatas;
     }
+    
 }

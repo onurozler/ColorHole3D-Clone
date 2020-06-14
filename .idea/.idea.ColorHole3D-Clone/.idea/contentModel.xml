@@ -718,7 +718,7 @@
                 <e p="CollectablePool.cs" t="Include" />
               </e>
               <e p="Model" t="Include">
-                <e p="CollectablePack.cs" t="Include" />
+                <e p="CollectableData.cs" t="Include" />
               </e>
             </e>
             <e p="HoleSystem" t="Include">

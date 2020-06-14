@@ -19,9 +19,9 @@ namespace Game.Managers
             _materials = materials;
         }
 
-        public Material GetCollectableMaterial(CollectablePack collectablePack)
+        public Material GetCollectableMaterial(CollectableType collectableType)
         {
-            return _materials.FirstOrDefault(x => String.Equals(x.name, collectablePack
+            return _materials.FirstOrDefault(x => String.Equals(x.name, collectableType
                                                                  +MATERIAL_PREFIX, StringComparison.OrdinalIgnoreCase));
         }
     }
