@@ -757,6 +757,7 @@
               </e>
               <e p="Model" t="Include">
                 <e p="LevelData.cs" t="Include" />
+                <e p="LevelEvent.cs" t="Include" />
               </e>
             </e>
             <e p="Managers" t="Include">

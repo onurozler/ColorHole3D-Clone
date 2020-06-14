@@ -1,6 +1,7 @@
 ﻿using System;
 using Game.CollectableObjectSystem.Base;
 using Game.CollectableObjectSystem.Managers;
+using Game.LevelSystem.Model;
 using UniRx;
 using UnityEngine;
 using Utils;
@@ -11,6 +12,7 @@ namespace Game.LevelSystem.Controllers
     public class LevelCollectableController : MonoBehaviour
     {
         private CollectablePool _collectablePool;
+        private float _currentLevelIncrease;
 
         public Action<float> OnCollected;
 
@@ -18,6 +20,9 @@ namespace Game.LevelSystem.Controllers
         private void OnInstaller(CollectablePool collectablePool)
         {
             _collectablePool = collectablePool;
+            _currentLevelIncrease = 0;
+            
+            MessageBroker.Default.Receive<int>().Subscribe(GetCurrentLevelDetails);
         }
 
         private void OnCollisionEnter(Collision other)
@@ -26,14 +31,31 @@ namespace Game.LevelSystem.Controllers
             if (collectable != null)
             {
                 _collectablePool.Despawn(collectable);
-                CheckLevelStatus();
-                OnCollected.SafeInvoke(1f/_collectablePool.NumActive);
+                
+                if(collectable.CollectableType == CollectableType.BAD)
+                    MessageBroker.Default.Publish(LevelEvent.LEVEL_FAIL);
+                
+                else 
+                    CheckLevelStatus();
             }
+        }
+
+        private void GetCurrentLevelDetails(int levelCount)
+        {
+            _currentLevelIncrease = 1f/levelCount;
         }
 
         private void CheckLevelStatus()
         {
+            if(_collectablePool.NumActive <= 0)
+            {
+                Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+                {
+                    MessageBroker.Default.Publish(LevelEvent.LEVEL_SUCCESSFUL);
+                });
+            }
             
+            OnCollected.SafeInvoke(_currentLevelIncrease);
         }
     }
 }

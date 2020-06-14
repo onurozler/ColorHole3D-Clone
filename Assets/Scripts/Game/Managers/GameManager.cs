@@ -20,6 +20,7 @@ namespace Game.Managers
         private void Start()
         {
             _holeBase.Initialize();
+            _levelGenerator.GenerateNewLevel();
         }
     }
 }

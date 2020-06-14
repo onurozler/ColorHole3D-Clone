@@ -1,4 +1,6 @@
 ﻿using Game.LevelSystem.Controllers;
+using Game.LevelSystem.Model;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -15,12 +17,17 @@ namespace Game.View
         [Inject]
         private void OnInstaller(LevelCollectableController levelCollectableController)
         {
+            _levelCollectableController = levelCollectableController;
             
+            _levelFill.fillAmount = 0;
+            _levelCollectableController.OnCollected += UpdateFill;
+
+            MessageBroker.Default.Receive<LevelEvent>().Subscribe((level) => _levelFill.fillAmount = 0);
         }
 
-        private void CurrentLevel(int level)
+        private void UpdateFill(float fillAmount)
         {
-            Debug.Log(level);
+            _levelFill.fillAmount += fillAmount;
         }
     }
 }
