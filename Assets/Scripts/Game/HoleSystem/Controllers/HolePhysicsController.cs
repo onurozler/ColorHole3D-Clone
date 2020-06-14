@@ -1,4 +1,6 @@
-﻿using Game.CollectableObjectSystem.Base;
+﻿using System;
+using Config;
+using Game.CollectableObjectSystem.Base;
 using UnityEngine;
 
 namespace Game.HoleSystem.Controllers
@@ -14,12 +16,22 @@ namespace Game.HoleSystem.Controllers
             _rigidbody.isKinematic = true;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             var collectable = other.GetComponent<CollectableBase>();
             if (collectable != null)
             {
+                collectable.gameObject.layer = GameConfig.COLLECTABLE_LAYER;
                 collectable.Release();
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            var collectable = other.GetComponent<CollectableBase>();
+            if (collectable != null)
+            {
+                collectable.gameObject.layer = GameConfig.DEFAULT_LAYER;
             }
         }
     }

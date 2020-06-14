@@ -8,12 +8,12 @@ namespace Game.CollectableObjectSystem.Base
         private Rigidbody _rigidbody;
         public CollectableType CollectableType;
 
-        private void Awake()
+        public void Initialize()
         {
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Initialize(CollectableType collectableType, Vector3 position ,Material material)
+        public void SetValues(CollectableType collectableType, Vector3 position ,Material material)
         {
             var meshRenderer = GetComponent<MeshRenderer>();
             CollectableType = collectableType;

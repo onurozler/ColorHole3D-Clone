@@ -34,7 +34,8 @@ namespace Installers
 
             Container.Bind<AssetManager>().AsSingle().NonLazy();
             Container.Bind<Material>().FromResources(MATERIAL_PATH).AsSingle();
-
+            
+            Container.Bind<CollectableManager>().AsSingle().NonLazy();
             Container.BindMemoryPool<CollectableBase, CollectablePool>().WithInitialSize(GameConfig.POOL_INITIAL_COUNT)
                .FromComponentInNewPrefabResource(COLLECTABLE_PREFAB_PATH).UnderTransform(_poolContainer);
 
