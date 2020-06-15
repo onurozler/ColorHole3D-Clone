@@ -30,6 +30,11 @@ namespace Game.LevelSystem.Controllers
             {
                 if(level == LevelEvent.LEVEL_SUCCESSFUL)
                     GenerateNewLevel();
+                else
+                {
+                    _currentLevel--;
+                    GenerateNewLevel();
+                }
             });
         }
 
@@ -47,6 +52,11 @@ namespace Game.LevelSystem.Controllers
                 }
                 
                 MessageBroker.Default.Publish(level.CollectableDatas.Count);
+            }
+            else
+            {
+                _currentLevel = 1;
+                GenerateNewLevel();
             }
         }
     }

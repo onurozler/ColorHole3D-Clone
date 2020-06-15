@@ -7,6 +7,7 @@ namespace Game.CollectableObjectSystem.Base
     {
         private Rigidbody _rigidbody;
         private Vector3 _firstVelocity;
+        private Vector3 _firstRotation;
 
         public bool IsRelased;
         public CollectableType CollectableType;
@@ -14,8 +15,9 @@ namespace Game.CollectableObjectSystem.Base
         public void Initialize()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            _firstVelocity = _rigidbody.velocity;
-            IsRelased = false;
+            _firstVelocity = Vector3.zero;
+            _firstRotation = Vector3.zero;
+            Reset();
         }
 
         public void SetValues(CollectableType collectableType, Vector3 position ,Material material)
@@ -39,6 +41,14 @@ namespace Game.CollectableObjectSystem.Base
             gameObject.layer = GameConfig.DEFAULT_LAYER;
             _rigidbody.velocity = _firstVelocity;
             IsRelased = false;
+        }
+        
+        public void Reset()
+        {
+            IsRelased = false;
+            _rigidbody.isKinematic = true;
+            _rigidbody.velocity = _firstVelocity;
+            transform.eulerAngles = _firstRotation;
         }
     }
 

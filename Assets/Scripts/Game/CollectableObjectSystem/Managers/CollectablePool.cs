@@ -10,5 +10,11 @@ namespace Game.CollectableObjectSystem.Managers
             base.OnCreated(item);
             item.Initialize();
         }
+
+        protected override void OnDespawned(CollectableBase item)
+        {
+            base.OnDespawned(item);
+            item.Reset();
+        }
     }
 }

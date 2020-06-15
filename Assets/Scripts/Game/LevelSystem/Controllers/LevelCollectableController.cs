@@ -34,7 +34,6 @@ namespace Game.LevelSystem.Controllers
                 
                 if(collectable.CollectableType == CollectableType.BAD)
                     MessageBroker.Default.Publish(LevelEvent.LEVEL_FAIL);
-                
                 else 
                     CheckLevelStatus();
             }
