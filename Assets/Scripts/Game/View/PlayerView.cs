@@ -14,6 +14,7 @@ namespace Game.View
         private Image _levelFill;
 
         private float _fillAmount = 0;
+        private Tween _currentTween;
 
         private LevelCollectableController _levelCollectableController;
         
@@ -27,6 +28,7 @@ namespace Game.View
 
             MessageBroker.Default.Receive<LevelEvent>().Subscribe((level) =>
             {
+                _currentTween?.Kill();
                 _levelFill.fillAmount = 0;
                 _fillAmount = 0;
             });
@@ -35,11 +37,10 @@ namespace Game.View
         private void UpdateFill(float fillAmount)
         {
             _fillAmount += fillAmount;
-            DOVirtual.Float(_levelFill.fillAmount, _fillAmount, 0.2f,(value) =>
+            _currentTween = DOVirtual.Float(_levelFill.fillAmount, _fillAmount, 0.2f,(value) =>
             {
                 _levelFill.fillAmount = value;
             });
-            
         }
     }
 }

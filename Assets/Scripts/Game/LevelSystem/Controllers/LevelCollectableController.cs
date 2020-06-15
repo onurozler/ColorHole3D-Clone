@@ -11,6 +11,7 @@ namespace Game.LevelSystem.Controllers
 {
     public class LevelCollectableController : MonoBehaviour
     {
+        private bool _isActive;
         private CollectablePool _collectablePool;
         private int _currentLevelCondition;
         private float _currentLevelIncrease;
@@ -22,12 +23,17 @@ namespace Game.LevelSystem.Controllers
         {
             _collectablePool = collectablePool;
             _currentLevelIncrease = 0;
+            _isActive = true;
             
             MessageBroker.Default.Receive<int>().Subscribe(GetCurrentLevelDetails);
+            MessageBroker.Default.Receive<LevelEvent>().Subscribe((level) => _isActive = true);
         }
 
         private void OnCollisionEnter(Collision other)
         {
+            if(!_isActive)
+                return;
+            
             var collectable = other.gameObject.GetComponent<CollectableBase>();
             if (collectable != null)
             {
@@ -35,6 +41,8 @@ namespace Game.LevelSystem.Controllers
 
                 if (collectable.CollectableType == CollectableType.BAD)
                 {
+                    _isActive = false;
+
                     Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
                     {
                         MessageBroker.Default.Publish(LevelEvent.LEVEL_FAIL);
@@ -56,6 +64,7 @@ namespace Game.LevelSystem.Controllers
             _currentLevelCondition--;
             if(_currentLevelCondition <= 0)
             {
+                _isActive = false;
                 Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
                 {
                     MessageBroker.Default.Publish(LevelEvent.LEVEL_SUCCESSFUL);
