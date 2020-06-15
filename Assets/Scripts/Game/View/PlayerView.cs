@@ -1,4 +1,5 @@
-﻿using Game.LevelSystem.Controllers;
+﻿using DG.Tweening;
+using Game.LevelSystem.Controllers;
 using Game.LevelSystem.Model;
 using UniRx;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace Game.View
         [SerializeField] 
         private Image _levelFill;
 
+        private float _fillAmount = 0;
+
         private LevelCollectableController _levelCollectableController;
         
         [Inject]
@@ -19,15 +22,24 @@ namespace Game.View
         {
             _levelCollectableController = levelCollectableController;
             
-            _levelFill.fillAmount = 0;
+            _fillAmount = 0;
             _levelCollectableController.OnCollected += UpdateFill;
 
-            MessageBroker.Default.Receive<LevelEvent>().Subscribe((level) => _levelFill.fillAmount = 0);
+            MessageBroker.Default.Receive<LevelEvent>().Subscribe((level) =>
+            {
+                _levelFill.fillAmount = 0;
+                _fillAmount = 0;
+            });
         }
 
         private void UpdateFill(float fillAmount)
         {
-            _levelFill.fillAmount += fillAmount;
+            _fillAmount += fillAmount;
+            DOVirtual.Float(_levelFill.fillAmount, _fillAmount, 0.2f,(value) =>
+            {
+                _levelFill.fillAmount = value;
+            });
+            
         }
     }
 }

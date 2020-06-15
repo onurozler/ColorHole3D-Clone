@@ -49,7 +49,7 @@ namespace Game.LevelSystem.Controllers
             if (level != null)
             {
                 _currentLevel++;
-                _holeBase.transform.position = new Vector3(3.25f,0.1f,-3f);
+                _holeBase.transform.position = new Vector3(3.25f,0.1f,4.5f);
                 foreach (var collectableData in level.CollectableDatas)
                 {
                     var collectable = _collectablePool.Spawn();

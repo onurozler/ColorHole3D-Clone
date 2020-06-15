@@ -35,6 +35,7 @@ namespace Game.LevelSystem.Editor
         private void Save()
         {
             var collectables = FindObjectsOfType<CollectableBase>().ToList();
+            
             if (collectables.Count <= 0 || _currentLevel == null)
                 return;
             
