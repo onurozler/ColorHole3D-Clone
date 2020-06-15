@@ -1,17 +1,19 @@
-﻿using System;
+﻿using System.Linq;
+using Game.CollectableObjectSystem.Base;
 using Game.CollectableObjectSystem.Managers;
+using Game.HoleSystem.Base;
 using Game.LevelSystem.Managers;
 using Game.LevelSystem.Model;
 using Game.Managers;
 using UniRx;
 using UnityEngine;
-using Utils;
 using Zenject;
 
 namespace Game.LevelSystem.Controllers
 {
     public class LevelGenerator
     {
+        private HoleBase _holeBase;
         private AssetManager _assetManager;
         private LevelManager _levelManager;
         private CollectablePool _collectablePool;
@@ -19,8 +21,10 @@ namespace Game.LevelSystem.Controllers
         private static int _currentLevel;
         
         [Inject]
-        private void OnInstaller(CollectablePool collectablePool, LevelManager levelManager, AssetManager assetManager)
+        private void OnInstaller(CollectablePool collectablePool, LevelManager levelManager, AssetManager assetManager,
+            HoleBase holeBase)
         {
+            _holeBase = holeBase;
             _collectablePool = collectablePool;
             _levelManager = levelManager;
             _assetManager = assetManager;
@@ -40,18 +44,21 @@ namespace Game.LevelSystem.Controllers
 
         public void GenerateNewLevel()
         {
+            _collectablePool.ResetPool();
             var level = _levelManager.LoadLevel(_currentLevel);
             if (level != null)
             {
                 _currentLevel++;
+                _holeBase.transform.position = new Vector3(3.25f,0.1f,-3f);
                 foreach (var collectableData in level.CollectableDatas)
                 {
                     var collectable = _collectablePool.Spawn();
                     collectable.SetValues(collectableData.CollectableType,collectableData.Position,
                         _assetManager.GetCollectableMaterial(collectableData.CollectableType));
                 }
-                
-                MessageBroker.Default.Publish(level.CollectableDatas.Count);
+
+                var badCount = level.CollectableDatas.Count(x => x.CollectableType == CollectableType.BAD);
+                MessageBroker.Default.Publish(level.CollectableDatas.Count - badCount);
             }
             else
             {

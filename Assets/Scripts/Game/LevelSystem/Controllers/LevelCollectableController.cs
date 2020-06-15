@@ -12,6 +12,7 @@ namespace Game.LevelSystem.Controllers
     public class LevelCollectableController : MonoBehaviour
     {
         private CollectablePool _collectablePool;
+        private int _currentLevelCondition;
         private float _currentLevelIncrease;
 
         public Action<float> OnCollected;
@@ -31,9 +32,14 @@ namespace Game.LevelSystem.Controllers
             if (collectable != null)
             {
                 _collectablePool.Despawn(collectable);
-                
-                if(collectable.CollectableType == CollectableType.BAD)
-                    MessageBroker.Default.Publish(LevelEvent.LEVEL_FAIL);
+
+                if (collectable.CollectableType == CollectableType.BAD)
+                {
+                    Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+                    {
+                        MessageBroker.Default.Publish(LevelEvent.LEVEL_FAIL);
+                    });
+                }
                 else 
                     CheckLevelStatus();
             }
@@ -42,11 +48,13 @@ namespace Game.LevelSystem.Controllers
         private void GetCurrentLevelDetails(int levelCount)
         {
             _currentLevelIncrease = 1f/levelCount;
+            _currentLevelCondition = levelCount;
         }
 
         private void CheckLevelStatus()
         {
-            if(_collectablePool.NumActive <= 0)
+            _currentLevelCondition--;
+            if(_currentLevelCondition <= 0)
             {
                 Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
                 {

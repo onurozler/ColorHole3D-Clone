@@ -44,12 +44,21 @@ namespace Game.HoleSystem.Controllers
             Vector3 transformPos = newPos;
             transformPos.z = newPos.y;
             transformPos.y = 0;
+
+            transformPos = transformPos.ScaleMultiplier(-0.01f);
             
-            if (Mathf.Abs(newPos.x) > 10 || Mathf.Abs(newPos.z) > 10)
-            {
-                transformPos = transformPos.ScaleMultiplier(-0.01f);
-                _holeBaseTransform.Translate(transformPos * Time.fixedDeltaTime);
-            }
+            transformPos.x = Mathf.Clamp(transformPos.x, -5f, 5f);
+            transformPos.z = Mathf.Clamp(transformPos.z, -5f, 5f);
+            
+            if ((_holeBaseTransform.position.x < 1.5f && transformPos.x < 0) || 
+                (_holeBaseTransform.position.x > 5 && transformPos.x > 0))
+                transformPos.x = 0;
+
+            if ((_holeBaseTransform.position.z < -3.5f && transformPos.z < 0) 
+                || (_holeBaseTransform.position.z > 5.25f && transformPos.z > 0))
+                transformPos.z = 0;
+            
+            _holeBaseTransform.Translate(transformPos * Time.fixedDeltaTime);
         }
     }
 }

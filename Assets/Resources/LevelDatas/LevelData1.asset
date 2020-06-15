@@ -14,51 +14,159 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   CollectableDatas:
-  - Position: {x: 2.9038262, y: 0.2, z: 1.81}
+  - Position: {x: 4.47, y: 0.2, z: 4.8723207}
     CollectableType: 0
-  - Position: {x: 3.16, y: 0.2, z: 1.81}
+  - Position: {x: 4.47, y: 0.2, z: 4.6073203}
     CollectableType: 0
-  - Position: {x: 3.47, y: 0.2, z: 1.81}
+  - Position: {x: 4.47, y: 0.2, z: 4.36}
     CollectableType: 0
-  - Position: {x: 3.75, y: 0.2, z: 1.81}
+  - Position: {x: 4.8199997, y: 0.2, z: 4.36}
     CollectableType: 0
-  - Position: {x: 3.75, y: 0.51, z: 1.81}
+  - Position: {x: 4.8199997, y: 0.2, z: 4.6073203}
     CollectableType: 0
-  - Position: {x: 3.47, y: 0.51, z: 1.81}
+  - Position: {x: 4.8199997, y: 0.2, z: 4.8723207}
     CollectableType: 0
-  - Position: {x: 3.16, y: 0.51, z: 1.81}
+  - Position: {x: 5.16, y: 0.2, z: 4.8723207}
     CollectableType: 0
-  - Position: {x: 2.9038262, y: 0.51, z: 1.81}
+  - Position: {x: 5.16, y: 0.2, z: 4.6073203}
     CollectableType: 0
-  - Position: {x: 2.9038262, y: 0.8, z: 1.81}
+  - Position: {x: 5.16, y: 0.2, z: 4.36}
     CollectableType: 0
-  - Position: {x: 3.16, y: 0.8, z: 1.81}
+  - Position: {x: 3.65, y: 0.2, z: 2.8576796}
     CollectableType: 0
-  - Position: {x: 3.47, y: 0.8, z: 1.81}
+  - Position: {x: 3.65, y: 0.2, z: 3.105}
     CollectableType: 0
-  - Position: {x: 3.75, y: 0.8, z: 1.81}
+  - Position: {x: 3.65, y: 0.2, z: 3.37}
     CollectableType: 0
-  - Position: {x: 3.75, y: 0.8, z: 1.43}
+  - Position: {x: 3.31, y: 0.2, z: 3.37}
     CollectableType: 0
-  - Position: {x: 3.47, y: 0.8, z: 1.43}
+  - Position: {x: 3.31, y: 0.2, z: 3.105}
     CollectableType: 0
-  - Position: {x: 3.16, y: 0.8, z: 1.43}
+  - Position: {x: 3.31, y: 0.2, z: 2.8576796}
     CollectableType: 0
-  - Position: {x: 2.9038262, y: 0.8, z: 1.43}
+  - Position: {x: 2.96, y: 0.2, z: 2.8576796}
     CollectableType: 0
-  - Position: {x: 2.9038262, y: 0.51, z: 1.43}
+  - Position: {x: 2.96, y: 0.2, z: 3.105}
     CollectableType: 0
-  - Position: {x: 3.16, y: 0.51, z: 1.43}
+  - Position: {x: 2.96, y: 0.2, z: 3.37}
     CollectableType: 0
-  - Position: {x: 3.47, y: 0.51, z: 1.43}
+  - Position: {x: 1.65, y: 0.2, z: 3.37}
+    CollectableType: 1
+  - Position: {x: 1.65, y: 0.2, z: 3.105}
+    CollectableType: 1
+  - Position: {x: 1.65, y: 0.2, z: 2.8576796}
+    CollectableType: 1
+  - Position: {x: 3.31, y: 0.2, z: 0.47467965}
+    CollectableType: 1
+  - Position: {x: 3.31, y: 0.2, z: 0.722}
+    CollectableType: 1
+  - Position: {x: 3.31, y: 0.2, z: 0.987}
+    CollectableType: 1
+  - Position: {x: 5.028, y: 0.2, z: 0.987}
     CollectableType: 0
-  - Position: {x: 3.75, y: 0.51, z: 1.43}
+  - Position: {x: 4.7910004, y: 0.2, z: 0.987}
     CollectableType: 0
-  - Position: {x: 3.75, y: 0.2, z: 1.43}
+  - Position: {x: 4.559, y: 0.2, z: 0.987}
     CollectableType: 0
-  - Position: {x: 3.47, y: 0.2, z: 1.43}
+  - Position: {x: 4.559, y: 0.2, z: 0.722}
     CollectableType: 0
-  - Position: {x: 3.16, y: 0.2, z: 1.43}
+  - Position: {x: 4.7910004, y: 0.2, z: 0.722}
     CollectableType: 0
-  - Position: {x: 2.9038262, y: 0.2, z: 1.43}
+  - Position: {x: 5.028, y: 0.2, z: 0.722}
+    CollectableType: 0
+  - Position: {x: 5.028, y: 0.2, z: 0.47467965}
+    CollectableType: 0
+  - Position: {x: 4.7910004, y: 0.2, z: 0.47467965}
+    CollectableType: 0
+  - Position: {x: 4.559, y: 0.2, z: 0.47467965}
+    CollectableType: 0
+  - Position: {x: 4.559, y: 0.2, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 4.7910004, y: 0.2, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 5.028, y: 0.2, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 5.028, y: 0.2, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 4.7910004, y: 0.2, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 4.559, y: 0.2, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 4.559, y: 0.2, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 4.7910004, y: 0.2, z: 0.217}
+    CollectableType: 0
+  - Position: {x: 5.028, y: 0.2, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.62, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.62, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.62, z: 0.217}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.62, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.62, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.62, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.62, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.62, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.62, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.62, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.62, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.62, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.411, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.411, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.411, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.411, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.411, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.411, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.411, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.411, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.411, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.411, z: 0.217}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.411, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.411, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.2, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.2, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.2, z: 0.217}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.2, z: 0.21699998}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.2, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.2, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.2, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.2, z: -0.048}
+    CollectableType: 0
+  - Position: {x: 1.879, y: 0.2, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 2.111, y: 0.2, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 1.642, y: 0.2, z: -0.29532033}
+    CollectableType: 0
+  - Position: {x: 1.41, y: 0.2, z: -0.29532033}
     CollectableType: 0
